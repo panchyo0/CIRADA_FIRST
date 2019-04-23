@@ -3,7 +3,7 @@
 
 ### High Level Design
    [Click To View](https://github.com/panchyo0/CIRADA_FIRST/blob/master/FIRST_High_Level_design.png)
-### Server:
+### Server (Django, Django Rest)
    #### Build virtual env and install all packages
         cd CIRADA_FIRST 
         virtualenv -p python3 venv
@@ -18,7 +18,7 @@
    #### Browsable API URL
         http://127.0.0.1:8000/api/
 
-### Client
+### Client (Reactjs, Redux)
 #### start client
         cd client/first 
         npm start
