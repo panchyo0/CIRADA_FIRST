@@ -27,10 +27,15 @@
     username: superuser
     password: 1234abcd
 
+### Demo Data
+    338.12,11.53,1,Decimal
+    22:32:28.800,11:31:48.000,0.25,Sexigessimal
+
 ### Load data:
 #### python manage.py load_test_user <password> 
-    - example python manage.py load_test_user 12345abcde
+    example python manage.py load_test_user 12345abcde
 #### python manage.py load_data <fileName> <-c> <-l 100> 
-    ( -c will prevent duplicate when import data. This option is time consuming. Default import will not check.
-    -l Indicates the number of FIRST objects to be created. Default will created all.)
-    - example python manage.py load_data FIRST_data.fit
+    -c will prevent duplicate when import data. This option is time consuming. Default import will not check.
+    -l Indicates the number of FIRST objects to be created. Default will created all.
+    
+    example python manage.py load_data FIRST_data.fit
