@@ -36,7 +36,7 @@
 ### Load data:
 #### python manage.py load_test_user <password> 
     example python manage.py load_test_user 12345abcde
-#### python manage.py load_data <fileName> <-c> <-l 100> 
+#### python manage.py load_data <fileName> <-c> <-l 100> (This command line will take 30 mins to build a new DB, if DB not exsit)  
     -c will prevent duplicate when import data. This option is time consuming. Default import will not check.
     -l Indicates the number of FIRST objects to be created. Default will created all.
     
