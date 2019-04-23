@@ -1,0 +1,16 @@
+/* auth */
+export const AUTH_START='AUTH_START';
+export const AUTH_SUCCESS='AUTH_SUCCESS';
+export const AUTH_FAIL='AUTH_FAIL';
+export const AUTH_LOGOUT='AUTH_LOGOUT';
+
+/* FIRST */
+//change page
+export const FIRST_CHANGE_PAGE='FIRST_CHANGE_PAGE';
+export const FIRST_CHANGE_PAGE_SIZE='FIRST_CHANGE_PAGE_SIZE';
+//search
+export const FIRST_SEARCH_START='FIRST_SEARCH_START'
+export const FIRST_SEARCH_SUCCESS='FIRST_SEARCH_SUCCESS'
+export const FIRST_SEARCH_FAIL='FIRST_SEARCH_FAIL'
+
+

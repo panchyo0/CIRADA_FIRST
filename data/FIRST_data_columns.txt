@@ -1,0 +1,10 @@
+Column_Name, Column_Format, Column_Unit, Column_Explanation
+FIRST, A16, , Identifying Name in Survey
+RAJ2000, F12.6, deg, Right Ascension in decimal degree units
+DEJ2000, F12.6, deg, Declination in decimal degree units
+Fint, F9.2, mJy, Integrated flux density (akin to intensity) in radio astronomer units
+c1, A1, , SDSS classification (s=star; g=galaxy; or blank)
+
+
+22:32:28.800,11:31:48.000,1,T
+338.12,11.53,1,f
