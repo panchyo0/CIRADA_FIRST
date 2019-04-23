@@ -1,6 +1,7 @@
 # CIRADA_FIRST
 ## CIRADA Demo
 
+
 ### Server:
    #### Build virtual env and install all packages
         virtualenv -p python3 venv
@@ -21,13 +22,15 @@
         npm start
 #### Client URL:
         http://localhost:3000
+        
+### Demo User
+    username: superuser
+    password: 1234abcd
 
 ### Load data:
-    python manage.py load_test_user <password> 
+#### python manage.py load_test_user <password> 
     - example python manage.py load_test_user 12345abcde
-    python manage.py load_data <fileName> <-c> <-l 100> 
-    ( 
-    -c will prevent duplicate when import data. This option is time consuming. Default import will not check.
-    -l Indicates the number of FIRST objects to be created. Default will created all.
-    )
+#### python manage.py load_data <fileName> <-c> <-l 100> 
+    ( -c will prevent duplicate when import data. This option is time consuming. Default import will not check.
+    -l Indicates the number of FIRST objects to be created. Default will created all.)
     - example python manage.py load_data FIRST_data.fit
