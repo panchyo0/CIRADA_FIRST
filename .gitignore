@@ -105,6 +105,8 @@ celerybeat-schedule
 venv/
 ENV/
 
+technical_assessment/
+
 # Spyder project settings
 .spyderproject
 .spyproject
