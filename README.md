@@ -2,23 +2,25 @@
 ## CIRADA Demo
 
 ### Server:
-    Build virtual env and install all packages
+   #### Build virtual env and install all packages
         virtualenv -p python3 venv
         source venv/bin/activate
         pip install -r requirements.txt
-    
-    cd server 
-    start server(developemt):
+        
+   #### start server(developemt):
+        cd server 
         python manage.py runserver
-    Administration url
+   #### Administration url
         http://127.0.0.1:8000/admin/
-    Browsable API URL
+   #### Browsable API URL
         http://127.0.0.1:8000/api/
 
 ### Client
-    start client
+#### start client
         cd client/first 
         npm start
+#### Client URL:
+        http://localhost:3000
 
 ### Load data:
     python manage.py load_test_user <password> 
