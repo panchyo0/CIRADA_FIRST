@@ -37,11 +37,7 @@ class Visdb extends React.Component {
                 var data={}
                 data.x=item.RAJ2000
                 data.y=item.DEJ2000
-                if (item.Fint>"1000") {
-                    data.r=item.Fint/parseFloat(100)
-                }else{
-                    data.r=item.Fint
-                }
+                data.r=item.Fint/parseFloat(10)
                 
                 if (item.c1==='g') {
                     galaxyData.push(data)
@@ -69,8 +65,10 @@ class Visdb extends React.Component {
             datasets:[{
                 label: 'Star', 
                 data: this.state.starData, 
-                borderColor: "rgba(60,186,159,0.2)",           
-                backgroundColor: "rgba(60,186,159,1)", 
+                borderColor: "rgba(0,0,0,0.2)",       
+                backgroundColor: "rgba(0, 0, 0, 0.45)"
+                // borderColor: "rgba(60,186,159,0.2)",           
+                // backgroundColor: "rgba(60,186,159,0.8)", 
             },{
                 label: 'Galaxy',
                 data: this.state.galaxyData,
@@ -79,8 +77,10 @@ class Visdb extends React.Component {
             },{
                 label: 'Blank',
                 data: this.state.blankData,
-                borderColor: "rgba(0,0,0,0.2)",       
-                backgroundColor: "#000"
+                // borderColor: "rgba(0,0,0,0.2)",       
+                // backgroundColor: "#000"
+                borderColor: "rgba(60,186,159,0.2)",           
+                backgroundColor: "rgba(60,186,159,0.8)", 
             }]
         }
 

@@ -45,7 +45,7 @@ class FirstFilter(django_filters.FilterSet):
                 radius=float(parms[2])
                 sexi=parms[3]
                 try:
-                    ra, de = self.translate_source(parms[0],parms[1],sexi)
+                    ra, de = translate_source(parms[0],parms[1],sexi)
                 except:
                     return FIRST.objects.none()
                 #caculate upper and lower case
@@ -56,18 +56,18 @@ class FirstFilter(django_filters.FilterSet):
                 qs = qs.filter(RAJ2000__gte=ra_low,RAJ2000__lte=ra_up,DEJ2000__gte=de_low,DEJ2000__lte=de_up).order_by('-ID')
         return qs
     
-    """
-    if Sexigessimal is true, convert to decimal.
-    """
-    def translate_source(self,ra,dec,sexi):
-        valid_true=['true','TRUE','True','t','T']
-        if sexi in valid_true:
-            if dec[0]!="+" or dec[0]!="-":
-                dec="+%s" % (dec)
-            hd1=ra+" "+dec
-            ra, dec = pyasl.coordsSexaToDeg(hd1)
-        # print(pyasl.coordsDegToSexa(float(ra),float(dec)))
-        return float(ra),float(dec)
+"""
+if Sexigessimal is true, convert to decimal.
+"""
+def translate_source(ra,dec,sexi):
+    valid_true=['true','TRUE','True','t','T']
+    if sexi in valid_true:
+        if dec[0]!="+" or dec[0]!="-":
+            dec="+%s" % (dec)
+        hd1=ra+" "+dec
+        ra, dec = pyasl.coordsSexaToDeg(hd1)
+    # print(pyasl.coordsDegToSexa(float(ra),float(dec)))
+    return float(ra),float(dec)
 
 
 """
@@ -92,17 +92,24 @@ class FirstViewSet(ModelViewSetBase):
             if source[0]!='':
                 parms=source[0].split(',')
                 if len(parms)==4:
-                    ra=float(parms[0])
-                    de=float(parms[1])
-                    radius=float(parms[2])
+                    
                     sexi=parms[3]
-
+                    try:
+                        ra, de = translate_source(parms[0],parms[1],sexi)
+                    except:
+                        ra=float(parms[0])
+                        de=float(parms[1])
+                    radius=float(parms[2])
+                    
+                    
+                    
                     if page is not None:
                         serializer = self.get_serializer(page, many=True)
                         self.angular_separation(serializer.data,ra,de)
                         return self.get_paginated_response(serializer.data)
 
                     serializer = self.get_serializer(queryset, many=True)
+                    self.angular_separation(serializer.data,ra,de)
                     return Response(serializer.data)
                 else:
                     return Response({"Failure": "Filter <source> need 4 parameters"}, status=status.HTTP_400_BAD_REQUEST)
