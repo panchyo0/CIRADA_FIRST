@@ -3,7 +3,7 @@
 
 ### High Level Design
    [Click To View](https://github.com/panchyo0/CIRADA_FIRST/blob/master/FIRST_High_Level_design.png)
-### Server:
+### Server (Django, Django Rest, JWT)
    #### Build virtual env and install all packages
         cd CIRADA_FIRST 
         virtualenv -p python3 venv
@@ -18,7 +18,7 @@
    #### Browsable API URL
         http://127.0.0.1:8000/api/
 
-### Client
+### Client (Reactjs, Redux)
 #### start client
         cd client/first 
         npm start
@@ -36,7 +36,7 @@
 ### Load data:
 #### python manage.py load_test_user <password> 
     example python manage.py load_test_user 12345abcde
-#### python manage.py load_data <fileName> <-c> <-l 100> 
+#### python manage.py load_data <fileName> <-c> <-l 100> (This command line will take 30 mins to build a new DB, if DB not exsit)  
     -c will prevent duplicate when import data. This option is time consuming. Default import will not check.
     -l Indicates the number of FIRST objects to be created. Default will created all.
     
